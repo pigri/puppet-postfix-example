@@ -1,0 +1,14 @@
+inet_interfaces = <%= bind_ip %>
+
+mail_owner = <%= mail_owner %>
+myhostname = <%= @hostname %>
+mydomain = <%= @domain %>
+myorigin = $mydomain
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+smtpd_banner = <%= @hostname %>.<%= @domain %> ESMTP
+<% if @relay == 'true' %>
+relayhost = <%= relayhost %>
+<%end %>
+
+recipient_delimiter = +
+smtp_host_lookup = dns, native
